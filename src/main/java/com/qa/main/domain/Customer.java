@@ -2,11 +2,14 @@ package com.qa.main.domain;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String forename;
@@ -27,6 +30,9 @@ public class Customer {
 
 	@Column(nullable = false)
 	private String emailAddress;
+
+	@OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Booking booking;
 
 	@Autowired
 	public Customer() {
@@ -50,8 +56,8 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", forename=" + forename + ", surname=" + surname + ", emailAdress=" + emailAddress
-				+ "]";
+		return "Customer [id=" + id + ", forename=" + forename + ", surname=" + surname + ", emailAdress="
+				+ emailAddress + "]";
 	}
 
 	public long getId() {
