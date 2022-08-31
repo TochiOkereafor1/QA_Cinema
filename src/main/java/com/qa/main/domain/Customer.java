@@ -26,7 +26,7 @@ public class Customer {
 	private String surname;
 
 	@Column(nullable = false)
-	private String emailAdress;
+	private String emailAddress;
 
 	@Autowired
 	public Customer() {
@@ -34,23 +34,23 @@ public class Customer {
 	}
 
 	@Autowired
-	public Customer(long id, String forename, String surname, String emailAdress) {
+	public Customer(long id, String forename, String surname, String emailAddress) {
 		this.id = id;
 		this.forename = forename;
 		this.surname = surname;
-		this.emailAdress = emailAdress;
+		this.emailAddress = emailAddress;
 	}
 
 	@Autowired
-	public Customer(String forename, String surname, String emailAdress) {
+	public Customer(String forename, String surname, String emailAddress) {
 		this.forename = forename;
 		this.surname = surname;
-		this.emailAdress = emailAdress;
+		this.emailAddress = emailAddress;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", forename=" + forename + ", surname=" + surname + ", emailAdress=" + emailAdress
+		return "Customer [id=" + id + ", forename=" + forename + ", surname=" + surname + ", emailAdress=" + emailAddress
 				+ "]";
 	}
 
@@ -78,17 +78,17 @@ public class Customer {
 		this.surname = surname;
 	}
 
-	public String getEmailAdress() {
-		return emailAdress;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
-	public void setEmailAdress(String emailAdress) {
-		this.emailAdress = emailAdress;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(emailAdress, forename, surname);
+		return Objects.hash(emailAddress, forename, surname);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		return Objects.equals(emailAdress, other.emailAdress) && Objects.equals(forename, other.forename)
+		return Objects.equals(emailAddress, other.emailAddress) && Objects.equals(forename, other.forename)
 				&& Objects.equals(surname, other.surname);
 	}
 
