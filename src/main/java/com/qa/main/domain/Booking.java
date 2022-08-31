@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,8 +26,8 @@ public class Booking {
 
 	@NotNull
 	@Size(min = 0, max = 30)
-	@JoinColumn(name = "Customer_Id", referencedColumnName = "id") // FK
-	@OneToOne(mappedBy = "Customer")
+	@JoinColumn(name = "customerId") // FK
+	@OneToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
 	private Long customerId;
 
 	@NotNull
