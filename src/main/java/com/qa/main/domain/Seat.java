@@ -20,10 +20,10 @@ public class Seat {
 	private Long seatId;
 
 	@Column(nullable = false)
-	private String row;
+	private char row_letter;
 
 	@Column(nullable = false)
-	private Long number;
+	private int row_number;
 
 	@Autowired
 	public Seat() {
@@ -31,21 +31,22 @@ public class Seat {
 	}
 
 	@Autowired
-	public Seat(Long seatId, String row, Long number) {
+	public Seat(Long seatId, char row_letter, int row_number) {
 		this.seatId = seatId;
-		this.row = row;
-		this.number = number;
+		this.row_letter = row_letter;
+		this.row_number = row_number;
 	}
 
 	@Autowired
-	public Seat(String row, Long number) {
-		this.row = row;
-		this.number = number;
+	public Seat(char row_letter, int row_number) {
+		super();
+		this.row_letter = row_letter;
+		this.row_number = row_number;
 	}
 
 	@Override
 	public String toString() {
-		return "Seat [seatId=" + seatId + ", row=" + row + ", number=" + number + "]";
+		return "Seat [seatId=" + seatId + ", row_letter=" + row_letter + ", row_number=" + row_number + "]";
 	}
 
 	public Long getSeatId() {
@@ -56,25 +57,25 @@ public class Seat {
 		this.seatId = seatId;
 	}
 
-	public String getRow() {
-		return row;
+	public char getRow_letter() {
+		return row_letter;
 	}
 
-	public void setRow(String row) {
-		this.row = row;
+	public void setRow_letter(char row_letter) {
+		this.row_letter = row_letter;
 	}
 
-	public Long getNumber() {
-		return number;
+	public int getRow_number() {
+		return row_number;
 	}
 
-	public void setNumber(Long number) {
-		this.number = number;
+	public void setRow_number(int row_number) {
+		this.row_number = row_number;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(number, row);
+		return Objects.hash(row_letter, row_number);
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class Seat {
 		if (getClass() != obj.getClass())
 			return false;
 		Seat other = (Seat) obj;
-		return Objects.equals(number, other.number) && Objects.equals(row, other.row);
+		return row_letter == other.row_letter && row_number == other.row_number;
 	}
 
 }
