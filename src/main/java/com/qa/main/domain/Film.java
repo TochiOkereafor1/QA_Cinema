@@ -35,7 +35,6 @@ public class Film {
 
 	@Autowired
 	public Film(Long filmID, String title, Long duration, String rating) {
-		super();
 		this.filmID = filmID;
 		this.title = title;
 		this.duration = duration;
@@ -44,7 +43,6 @@ public class Film {
 
 	@Autowired
 	public Film(String title, Long duration, String rating) {
-		super();
 		this.title = title;
 		this.duration = duration;
 		this.rating = rating;
@@ -53,6 +51,38 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film [filmID=" + filmID + ", title=" + title + ", duration=" + duration + ", rating=" + rating + "]";
+	}
+
+	public Long getFilmID() {
+		return filmID;
+	}
+
+	public void setFilmID(Long filmID) {
+		this.filmID = filmID;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 
 	@Override
