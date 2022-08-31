@@ -2,13 +2,13 @@ package com.qa.main.domain;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -32,8 +32,9 @@ public class Booking {
 
 	@NotNull
 	@Size(min = 0, max = 20)
-	@Column(name = "Screening_Id") // FK
-	private Long screeningId;
+	@JoinColumn(name = "screeningId")
+	@ManyToOne(targetEntity = Screening.class, fetch = FetchType.LAZY)
+    private Long screeningId;
 
 	@Autowired
 	public Booking() {
