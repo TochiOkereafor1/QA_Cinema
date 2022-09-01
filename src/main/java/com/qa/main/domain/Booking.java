@@ -25,7 +25,7 @@ public class Booking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long bookingID;
+	private Long bookingId;
 
 	@NotNull
 	@Size(min = 0, max = 20)
