@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qa.main.domain.Film;
 import com.qa.main.domain.Screening;
 import com.qa.main.repository.ScreeningRepository;
 
@@ -21,6 +20,12 @@ public class ScreeningService {
 		this.repo =repo; 
 		screening = new Screening(); 
 	}
+	
+	public Screening createScreening(Screening screening) {
+		return repo.save(screening); 
+	}
+	
+	
 	
 	public List<Screening> getAllScreenings(){
 		return this.repo.findAll(); 
