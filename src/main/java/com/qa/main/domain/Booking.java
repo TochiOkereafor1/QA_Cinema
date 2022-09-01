@@ -20,7 +20,7 @@ public class Booking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long bookingID;
+	private Long bookingId;
 
 	@Column(nullable = false)
 //	@JoinColumn(name = "screeningId")
