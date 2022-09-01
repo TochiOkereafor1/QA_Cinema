@@ -2,14 +2,11 @@ package com.qa.main.domain;
 
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +28,8 @@ public class Customer {
 	@Column(nullable = false)
 	private String emailAddress;
 
-	@OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Booking booking;
+//	@OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	private Booking booking;
 
 	@Autowired
 	public Customer() {
