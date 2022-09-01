@@ -1,5 +1,7 @@
 package com.qa.main.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,31 @@ public class BookingService {
 
 	public Booking createBooking(Booking booking) {
 		return repo.save(booking);
+	}
+
+	public Booking readBooking(Long bookingId) {
+		return repo.findById(bookingId).get();
+	}
+
+	public Booking updateBooking(Booking updateBooking, Long bookingId) {
+		Optional<Booking> currentBooking = this.repo.findById(bookingId);
+		Booking oldBooking = currentBooking.get();
+		oldBooking.setForename(updateBooking.getForename());
+		oldBooking.setForename(updateBooking.getSurname());
+		oldBooking.setEmailAddress(updateBooking.getEmailAddress());
+		oldBooking.setScreeningId(updateBooking.getScreeningId());
+		return repo.save(oldBooking);
+	}
+
+	public boolean deleteBooking(Long bookingId) {
+		Optional<Booking> currentBooking = this.repo.findById(bookingId);
+		boolean isPresent = (currentBooking.isPresent()) ? true : false;
+		if (isPresent) {
+			this.repo.deleteById(bookingId);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
