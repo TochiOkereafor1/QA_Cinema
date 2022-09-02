@@ -97,7 +97,10 @@ BootHead{
     transition: 0.3s;
   }
   
-  .btn:hover {opacity: 1}
+  .btn:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 
 
   .footerLinks {
