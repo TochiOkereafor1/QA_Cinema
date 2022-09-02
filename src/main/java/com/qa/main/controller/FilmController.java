@@ -24,12 +24,12 @@ import com.qa.main.service.FilmService;
 @ResponseStatus
 @CrossOrigin
 public class FilmController {
- 
+
 	@Autowired
 	private FilmService service;
-	
+
 	public FilmController(FilmService service) {
-		this.service = service; 
+		this.service = service;
 	}
 
 	@GetMapping("/getFilms")
@@ -38,18 +38,18 @@ public class FilmController {
 		return new ResponseEntity<List<Film>>(filmData, HttpStatus.OK);
 	}
 
-	@GetMapping("/get/{filmID}")
+	@GetMapping("/getFilm/{filmID}")
 	public ResponseEntity<Film> getFilmId(@PathVariable Long filmId) {
 		Film filmInfo = service.readSingleFilm(filmId);
 		return new ResponseEntity<Film>(filmInfo, HttpStatus.OK);
 
 	}
-	
+
 	@PostMapping("/createFilm")
-	public ResponseEntity<Film> createFilm(@RequestBody Film film){
-		Film createFilm = service.createFilm(film); 
-		return new ResponseEntity<Film>(createFilm, HttpStatus.CREATED); 
-		
+	public ResponseEntity<Film> createFilm(@RequestBody Film film) {
+		Film createFilm = service.createFilm(film);
+		return new ResponseEntity<Film>(createFilm, HttpStatus.CREATED);
+
 	}
 
 }
