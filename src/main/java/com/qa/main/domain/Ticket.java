@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,15 +27,13 @@ public class Ticket {
 
 	@JoinColumn(name = "bookingId")
 	@NotNull
-	@Size(min = 0, max = 20)
 	@ManyToOne(targetEntity = Booking.class, fetch = FetchType.LAZY)
-	private Long bookingId;
+	private Booking bookingId;
 
 	@JoinColumn(name = "seatId")
 	@NotNull
-	@Size(min = 0, max = 20)
 	@ManyToOne(targetEntity = Seat.class, fetch = FetchType.LAZY)
-	private Long seatId;
+	private Seat seatId;
 
 	@Autowired
 	public Ticket() {
@@ -44,7 +41,7 @@ public class Ticket {
 	}
 
 	@Autowired
-	public Ticket(Long ticketId, Long bookingId, Long seatId) {
+	public Ticket(Long ticketId, Booking bookingId, Seat seatId) {
 		super();
 		this.ticketId = ticketId;
 		this.bookingId = bookingId;
@@ -52,7 +49,7 @@ public class Ticket {
 	}
 
 	@Autowired
-	public Ticket(Long bookingId, Long seatId) {
+	public Ticket(Booking bookingId, Seat seatId) {
 		super();
 		this.bookingId = bookingId;
 		this.seatId = seatId;

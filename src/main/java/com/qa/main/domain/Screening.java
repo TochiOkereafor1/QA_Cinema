@@ -27,14 +27,14 @@ public class Screening {
 
 	@JoinColumn(name = "filmId")
 	@ManyToOne(targetEntity = Film.class, fetch = FetchType.LAZY)
-	private Long filmId;
+	private Film filmId;
 
 //    @OneToMany(mappedBy = "screeningId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Booking booking;
 
 	// test constructor
 	@Autowired
-	public Screening(Long screeningId, String time, Long filmId) {
+	public Screening(Long screeningId, String time, Film filmId) {
 		super();
 		this.screeningId = screeningId;
 		this.time = time;
@@ -43,7 +43,7 @@ public class Screening {
 
 	// production constructor
 	@Autowired
-	public Screening(String time, Long filmId) {
+	public Screening(String time, Film filmId) {
 		super();
 		this.time = time;
 		this.filmId = filmId;
@@ -65,11 +65,11 @@ public class Screening {
 		this.time = time;
 	}
 
-	public Long getfilmId() {
+	public Film getfilmId() {
 		return filmId;
 	}
 
-	public void setfilmId(Long filmId) {
+	public void setfilmId(Film filmId) {
 		this.filmId = filmId;
 	}
 

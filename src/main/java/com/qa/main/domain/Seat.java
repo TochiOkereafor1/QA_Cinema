@@ -20,10 +20,10 @@ public class Seat {
 	private Long seatId;
 
 	@Column(nullable = false)
-	private char row_letter;
+	private char seatRow;
 
 	@Column(nullable = false)
-	private int row_number;
+	private int seatNumber;
 
 	@Autowired
 	public Seat() {
@@ -31,22 +31,22 @@ public class Seat {
 	}
 
 	@Autowired
-	public Seat(Long seatId, char row_letter, int row_number) {
+	public Seat(Long seatId, char seatRow, int seatNumber) {
 		this.seatId = seatId;
-		this.row_letter = row_letter;
-		this.row_number = row_number;
+		this.seatRow = seatRow;
+		this.seatNumber = seatNumber;
 	}
 
 	@Autowired
-	public Seat(char row_letter, int row_number) {
+	public Seat(char seatRow, int seatNumber) {
 		super();
-		this.row_letter = row_letter;
-		this.row_number = row_number;
+		this.seatRow = seatRow;
+		this.seatNumber = seatNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "Seat [seatId=" + seatId + ", row_letter=" + row_letter + ", row_number=" + row_number + "]";
+		return "Seat [seatId=" + seatId + ", seatRow=" + seatRow + ", seatNumber=" + seatNumber + "]";
 	}
 
 	public Long getSeatId() {
@@ -57,25 +57,25 @@ public class Seat {
 		this.seatId = seatId;
 	}
 
-	public char getRow_letter() {
-		return row_letter;
+	public char getSeatRow() {
+		return seatRow;
 	}
 
-	public void setRow_letter(char row_letter) {
-		this.row_letter = row_letter;
+	public void setSeatRow(char seatRow) {
+		this.seatRow = seatRow;
 	}
 
-	public int getRow_number() {
-		return row_number;
+	public int getSeatNumber() {
+		return seatNumber;
 	}
 
-	public void setRow_number(int row_number) {
-		this.row_number = row_number;
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(row_letter, row_number);
+		return Objects.hash(seatRow, seatNumber);
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class Seat {
 		if (getClass() != obj.getClass())
 			return false;
 		Seat other = (Seat) obj;
-		return row_letter == other.row_letter && row_number == other.row_number;
+		return seatRow == other.seatRow && seatNumber == other.seatNumber;
 	}
 
 }
