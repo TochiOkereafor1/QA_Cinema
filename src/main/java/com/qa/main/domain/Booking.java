@@ -2,7 +2,6 @@ package com.qa.main.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +34,7 @@ public class Booking {
 	private String emailAddress;
 
 	@JoinColumn(name = "screeningId")
-	@ManyToOne(targetEntity = Screening.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Screening.class)
 	private Screening screeningId;
 
 	public Booking(Screening screeningId, String forename, String surname, String emailAddress) {
