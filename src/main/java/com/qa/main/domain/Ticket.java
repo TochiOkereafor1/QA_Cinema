@@ -3,7 +3,6 @@ package com.qa.main.domain;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,12 +26,12 @@ public class Ticket {
 
 	@JoinColumn(name = "bookingId")
 	@NotNull
-	@ManyToOne(targetEntity = Booking.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Booking.class)
 	private Booking bookingId;
 
 	@JoinColumn(name = "seatId")
 	@NotNull
-	@ManyToOne(targetEntity = Seat.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Seat.class)
 	private Seat seatId;
 
 	@Autowired
