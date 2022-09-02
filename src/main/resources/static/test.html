@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parking System</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">Parking System</a> 
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link">TBC</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Location</a>
+                </li>
+                <!-- <li>
+                    <button type="submit" onclick="readManyCars()" class="btn btn-primary">View Car List </button>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <h1> Car Information </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <!-- <button type= "submit" class = "btn btn-primary btn-sm mb-3" id = "add_car_btn" onclick="createCar()">Add Car</button> -->
+            </div>
+        </div>
+        <table class="table table-striped table-bordered" id="tbl1">
+            <thead class="table-dark" id="car_data">
+                <tr>
+                    <th> Car Make</th>
+                    <th> Car Model</th>
+                    <th> Car Registration </th>
+                    <th> Actions </th>
+
+                </tr>
+            </thead>
+            <tbody id="table_body"></tbody>
+
+            <script>
+                fetch("http://localhost:8080/car/getCars", {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json"
+
+
+                    }
+                }
+                ).then(
+                    res => {
+                        res.json().then(
+
+                            data => {
+
+                                console.log(data[0]);
+
+                                // document.querySelector("#tbl1") ="initial"; 
+                                alert("Displaying all Car Records");
+                                if (data.length > 0) {
+
+                                    var info = "";
+
+                                    data.forEach((cars) => {
+                                        info += "<tr>";
+                                        info += "<td>" + cars.carMake + "</td>";
+                                        info += "<td>" + cars.carModel + "</td>";
+                                        info += "<td>" + cars.carRegNum + "</td>";
+                                        info += "<td>" + `<button type="button" class="btn btn-primary" id="Update_btn" onclick="redirectToUpdate(${cars.carID})">Update</button> ` + 
+                                            `<button type="button" class="btn btn-danger" id="delete_btn" onclick="deleteCar(${cars.carID})" >Delete</button>` + "</td>";
+                                        
+                                            
+
+                                            
+
+
+                                    })
+                                    document.getElementById("table_body").innerHTML = info;
+
+                                };
+                            }
+
+
+                        )
+                    }
+                )
+            </script>
+
+
+
+
+        </table>
+
+    </div>
+    <script async src="./Js/script.js"></script>
+</body>
+
+</html>
