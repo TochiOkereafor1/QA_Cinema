@@ -2,9 +2,12 @@ package com.qa.main.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,11 +26,6 @@ public class Booking {
 	private Long bookingId;
 
 	@Column(nullable = false)
-//	@JoinColumn(name = "screeningId")
-//	@ManyToOne(targetEntity = Screening.class, fetch = FetchType.LAZY)
-	private Long screeningId;
-
-	@Column(nullable = false)
 	private String forename;
 
 	@Column(nullable = false)
@@ -36,7 +34,11 @@ public class Booking {
 	@Column(nullable = false)
 	private String emailAddress;
 
-	public Booking(Long screeningId, String forename, String surname, String emailAddress) {
+	@JoinColumn(name = "screeningId")
+	@ManyToOne(targetEntity = Screening.class, fetch = FetchType.LAZY)
+	private Screening screeningId;
+
+	public Booking(Screening screeningId, String forename, String surname, String emailAddress) {
 		this.screeningId = screeningId;
 		this.forename = forename;
 		this.surname = surname;
