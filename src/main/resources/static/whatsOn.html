@@ -29,6 +29,47 @@
     <main>
         <p>This is the main content of the page</p>
 
+        <ul>
+            <li>
+                <div class="poster">
+                    <img src="./CastAwayFilmPoster.png" alt="">
+                </div>
+
+                <div class="centre">
+                    <h2> <a href="./castaway.html"> Castaway</a></h2>
+                    <div class="filmItemCert">
+                        <div >15</div>
+                    </div>
+                    <button type="button" class="collapsible">Synopsis</button>
+                    <div class="content">Obsessively punctual FedEx executive Chuck Noland (Tom Hanks) is en route to an assignment in Malaysia when his plane crashes over the Pacific Ocean during a storm. The sole survivor of the flight, Chuck washes ashore on a deserted island. When his efforts to sail away and contact help fail, Chuck learns how to survive on the island, where he remains for years, accompanied by only his handmade volleyball friend, Wilson. Will Chuck ever return to civilization and reunite with his loved ones?</div>
+            
+                </div>
+
+            </li>
+        </ul>
+
+
+
+<!-- hello -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- <table>
             <thead>
                 <th>Poster</th>
@@ -41,7 +82,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <a href="./booking.html">book the film</a>
+        <a href="./castaway.html">we are castaways
+        </a>
+
+
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
+
     </main>
 
     <footer>
