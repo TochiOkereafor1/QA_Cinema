@@ -17,7 +17,7 @@ public class Film {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long filmID;
+	private Long filmId;
 
 	@Column(nullable = false)
 	private String title;
@@ -34,8 +34,8 @@ public class Film {
 	}
 
 	@Autowired
-	public Film(Long filmID, String title, Long duration, String rating) {
-		this.filmID = filmID;
+	public Film(Long filmId, String title, Long duration, String rating) {
+		this.filmId = filmId;
 		this.title = title;
 		this.duration = duration;
 		this.rating = rating;
@@ -50,15 +50,15 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [filmID=" + filmID + ", title=" + title + ", duration=" + duration + ", rating=" + rating + "]";
+		return "Film [filmId=" + filmId + ", title=" + title + ", duration=" + duration + ", rating=" + rating + "]";
 	}
 
-	public Long getFilmID() {
-		return filmID;
+	public Long getFilmId() {
+		return filmId;
 	}
 
-	public void setFilmID(Long filmID) {
-		this.filmID = filmID;
+	public void setFilmId(Long filmId) {
+		this.filmId = filmId;
 	}
 
 	public String getTitle() {
