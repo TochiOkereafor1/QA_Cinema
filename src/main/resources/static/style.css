@@ -36,9 +36,17 @@ display: inline-flex;
 
 .centre{
 margin:10px;
+overflow:hidden
 }
 
+.filmTitle{
+  float: left;
+}
 
+.filmItemCert{
+  float:right;
+  margin: auto
+}
 
 
 
@@ -51,6 +59,8 @@ margin:10px;
   margin-left: auto;
   margin-right: auto
 }
+
+
 
 /* @font-face {
   font-family: PiecesOfEight;
