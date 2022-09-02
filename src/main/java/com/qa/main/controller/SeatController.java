@@ -40,22 +40,22 @@ public class SeatController {
 		return new ResponseEntity<Seat>(createSeat, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/readById/{seatId}")
+	@GetMapping("/getSeat/{seatId}")
 	public ResponseEntity<Seat> readSeatsById(@PathVariable long seatId) {
 		return new ResponseEntity<Seat>(this.service.getById(seatId), HttpStatus.OK);
 	}
 
-	@GetMapping("/readAll")
+	@GetMapping("/getSeats")
 	public ResponseEntity<List<Seat>> readAllSeat() {
 		return new ResponseEntity<List<Seat>>(this.service.getAll(), HttpStatus.OK);
 	}
 
-	@PutMapping("/update/{seatId}")
+	@PutMapping("/updateSeat/{seatId}")
 	public ResponseEntity<Seat> updateSeats(@PathVariable long seatId, @RequestBody Seat Seat) {
 		return new ResponseEntity<Seat>(this.service.update(seatId, Seat), HttpStatus.ACCEPTED);
 	}
 
-	@DeleteMapping("/delete/{seatId}")
+	@DeleteMapping("/deleteSeat/{seatId}")
 	public ResponseEntity<Boolean> deleteSeat(@PathVariable long seatId) {
 		// Line below uses a Ternary Operator, basically says IF service.delete method
 		// goes through, RETURN no content ELSE return not found

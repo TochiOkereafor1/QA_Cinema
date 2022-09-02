@@ -31,12 +31,12 @@ public class ScreeningController {
 	public ScreeningController(ScreeningService service) {
 		this.service = service;
 	}
-	
+
 	@PostMapping("/createScreening")
-	public ResponseEntity<Screening> createScreening(@RequestBody Screening screening){
-		Screening createScreening = service.createScreening(screening);  
-		return new ResponseEntity<Screening>(createScreening, HttpStatus.CREATED); 
-		
+	public ResponseEntity<Screening> createScreening(@RequestBody Screening screening) {
+		Screening createScreening = service.createScreening(screening);
+		return new ResponseEntity<Screening>(createScreening, HttpStatus.CREATED);
+
 	}
 
 	@GetMapping("/getScreenings")
@@ -45,7 +45,7 @@ public class ScreeningController {
 		return new ResponseEntity<List<Screening>>(screeningData, HttpStatus.OK);
 	}
 
-	@GetMapping("/get/{screeningId}")
+	@GetMapping("/getScreening/{screeningId}")
 	public ResponseEntity<Screening> getScreeningId(@PathVariable Long screeningId) {
 		Screening screeningInfo = service.readSingleScreening(screeningId);
 		return new ResponseEntity<Screening>(screeningInfo, HttpStatus.OK);

@@ -42,13 +42,13 @@ public class TicketController {
 		return new ResponseEntity<Ticket>(newTicket, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/getTickets/{bookingId}")
+	@GetMapping("/getTicket/{bookingId}")
 	public ResponseEntity<Ticket> getTicketbyBooking(@PathVariable("bookingId") Long bookingId) {
 		Ticket ticket = service.readTicketByBookingId(bookingId);
 		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/getTickets/{seatId}")
+	@GetMapping("/getTicket/{seatId}")
 	public ResponseEntity<Ticket> getTicketBySeat(@PathVariable("seatId") Long seatId) {
 		Ticket ticket = service.readTicketBySeatId(seatId);
 		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
