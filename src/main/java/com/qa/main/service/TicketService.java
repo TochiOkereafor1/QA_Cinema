@@ -35,10 +35,10 @@ public class TicketService {
 		return existing.get(0);
 	}
 
-	public Ticket readTicketBySeatId(Long seatId) {
-		List<Ticket> existing = repo.findTicketBySeatSQL(seatId);
-		return existing.get(0);
-	}
+//	public Ticket readTicketBySeatId(Seat seatId) {
+//		List<Ticket> existing = repo.findTicketBySeatSQL(seatId);
+//		return existing.get(0);
+//	}
 
 	public boolean deleteTicket(long ticketId) {
 		repo.deleteById(ticketId);
@@ -51,7 +51,7 @@ public class TicketService {
 		Ticket existing = existingOptional.get();
 
 		existing.setBookingId(newTicket.getBookingId());
-		existing.setSeatId(newTicket.getSeatId());
+//		existing.setSeatId(newTicket.getSeatId());
 
 		return null;
 	}
