@@ -93,9 +93,72 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" createPerson
-                                data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="create--button" onclick="createPerson()"
-                                data-bs-dismiss="modal">Add</button>
+                                data-bs-dismiss="modal">Cancel</button>
+                                <div>
+                                    <button type="button" class="add-button" data-bs-toggle="modal"
+                                        data-bs-target="#ticketModal">15:00</button>
+                        
+                                    <div id="ticketModal" class="modal fade" tabindex="-1" aria-labelledby="ticketModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ticketModalLabel" style="color: black;">15:00</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+                                                        <form>
+                                                            <div class="h5">Adult:</div>
+                                                            <div class="book-ticket-quantity">
+                                                                <label class="select-2 book-ticket-quantity-field">
+                                                                    <select class="bookTicket" data-book-ticket-price="1300"
+                                                                        data-book-ticket-type="0001" data-book-ticket-recognitionid=""
+                                                                        data-book-ticket-displayname="Adult" data-nr-booking-ticketsbtn="">
+                                                                        <option value="0" selected="" data-nr-booking-ticket="">0</option>
+                                                                        <option value="1" data-nr-booking-ticket="">1</option>
+                                                                        <option value="2" data-nr-booking-ticket="">2</option>
+                                                                        <option value="3" data-nr-booking-ticket="">3</option>
+                                                                        <option value="4" data-nr-booking-ticket="">4</option>
+                                                                        <option value="5" data-nr-booking-ticket="">5</option>
+                                                                        <option value="6" data-nr-booking-ticket="">6</option>
+                                                                        <option value="7" data-nr-booking-ticket="">7</option>
+                                                                        <option value="8" data-nr-booking-ticket="">8</option>
+                                                                    </select>
+                                                                </label>
+                                                            </div>
+                                                            <div class="h5">Senior:</div>
+                                                            <div class="book-ticket-quantity">
+                                                                <label class="select-2 book-ticket-quantity-field">
+                                                                    <select class="bookTicket" data-book-ticket-price="1295"
+                                                                        data-book-ticket-type="0001" data-book-ticket-recognitionid=""
+                                                                        data-book-ticket-displayname="Adult" data-nr-booking-ticketsbtn="">
+                                                                        <option value="0" selected="" data-nr-booking-ticket="">0</option>
+                                                                        <option value="1" data-nr-booking-ticket="">1</option>
+                                                                        <option value="2" data-nr-booking-ticket="">2</option>
+                                                                        <option value="3" data-nr-booking-ticket="">3</option>
+                                                                        <option value="4" data-nr-booking-ticket="">4</option>
+                                                                        <option value="5" data-nr-booking-ticket="">5</option>
+                                                                        <option value="6" data-nr-booking-ticket="">6</option>
+                                                                        <option value="7" data-nr-booking-ticket="">7</option>
+                                                                        <option value="8" data-nr-booking-ticket="">8</option>
+                                                                    </select>
+                                                                </label>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" createPerson
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" id="create--button" onclick="createPerson()"
+                                                        data-bs-dismiss="modal">Add</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </div>
                         </div>
                     </div>
                 </div>
