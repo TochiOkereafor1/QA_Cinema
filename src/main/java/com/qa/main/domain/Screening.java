@@ -1,14 +1,16 @@
 package com.qa.main.domain;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +26,20 @@ public class Screening {
 	@Column(nullable = false)
 	private String time;
 
-	@JoinColumn(name = "filmId")
-	@ManyToOne(targetEntity = Film.class)
-	private Film filmId;
+	@Column
+	private Long filmId;
 
-//    @OneToMany(mappedBy = "screeningId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Booking booking;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
+	private List<Booking> bookings;
+
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
+//	private Booking booking;
 
 	// test constructor
 	@Autowired
-	public Screening(Long screeningId, String time, Film filmId) {
+	public Screening(Long screeningId, String time, Long filmId) {
 		super();
 		this.screeningId = screeningId;
 		this.time = time;
@@ -42,7 +48,7 @@ public class Screening {
 
 	// production constructor
 	@Autowired
-	public Screening(String time, Film filmId) {
+	public Screening(String time, Long filmId) {
 		super();
 		this.time = time;
 		this.filmId = filmId;
@@ -64,12 +70,20 @@ public class Screening {
 		this.time = time;
 	}
 
-	public Film getfilmId() {
+	public Long getfilmId() {
 		return filmId;
 	}
 
-	public void setfilmId(Film filmId) {
+	public void setfilmId(Long filmId) {
 		this.filmId = filmId;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	@Autowired

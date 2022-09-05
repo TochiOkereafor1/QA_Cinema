@@ -10,33 +10,27 @@ import com.qa.main.repository.ScreeningRepository;
 
 @Service
 public class ScreeningService {
-	
-	private Screening screening; 
-	
+
+	private Screening screening;
+
 	@Autowired
-	private ScreeningRepository repo; 
-	
-	public ScreeningService (ScreeningRepository repo) {
-		this.repo =repo; 
-		screening = new Screening(); 
+	private ScreeningRepository repo;
+
+	public ScreeningService(ScreeningRepository repo) {
+		this.repo = repo;
+		screening = new Screening();
 	}
-	
+
 	public Screening createScreening(Screening screening) {
-		return repo.save(screening); 
+		return repo.save(screening);
 	}
-	
-	
-	
-	public List<Screening> getAllScreenings(){
-		return this.repo.findAll(); 
+
+	public List<Screening> getAllScreenings() {
+		return this.repo.findAll();
 	}
-	
-	public Screening readSingleScreening (Long screeningId) {
-		return this.repo.findById(screeningId).get(); 
+
+	public Screening readSingleScreening(Long screeningId) {
+		return this.repo.findById(screeningId).get();
 	}
-	
-	
-	
-	
 
 }
