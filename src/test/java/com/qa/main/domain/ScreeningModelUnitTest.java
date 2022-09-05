@@ -30,8 +30,8 @@ public class ScreeningModelUnitTest {
 	@Test
 	void toStringTest() {
 		testScreening = new Screening(1L, "14:00", 1L);
-		String expecting = "Screening [screeningId =" + testScreening.getfilmId() +", time=" + testScreening.gettime()+ ", screeningId=" + testScreening.getscreeningId() +  "]";
-		assertEquals(expecting,testScreening.toString());
+		String expecting = "Screening [id=" + testScreening.getscreeningId() + ", time=" + testScreening.gettime() + ", filmId=" + testScreening.getfilmId() + "]";
+		assertEquals(expecting, testScreening.toString());
 	
 	}
 	
