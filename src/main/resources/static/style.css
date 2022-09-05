@@ -87,7 +87,7 @@ BootHead{
   }
 
   .btn {
-    background-color: #ff9500;
+    background-color: #ff9500 !important;
     border: none;
     color: white !important;
     padding: 16px 32px;
