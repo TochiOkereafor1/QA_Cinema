@@ -60,13 +60,12 @@ public class Ticket {
 		if (getClass() != obj.getClass())
 			return false;
 		Ticket other = (Ticket) obj;
-		return Objects.equals(bookingId, other.bookingId) && Objects.equals(seatRef, other.seatRef)
-				&& Objects.equals(ticketId, other.ticketId);
+		return Objects.equals(bookingId, other.bookingId) && Objects.equals(seatRef, other.seatRef);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bookingId, seatRef, ticketId);
+		return Objects.hash(bookingId, seatRef);
 	}
 
 //	public Ticket(Long ticketId, Long bookingId, List<Seat> seats) {
