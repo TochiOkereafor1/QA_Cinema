@@ -11,17 +11,17 @@ const newSurname = document.querySelector('#newSurname');
 const newEmailAddress = document.querySelector('#newEmailAddress');
 
 
-const getBooking = (bookingId) => {
-    console.log('bookingId');
+// const getBooking = (bookingId) => {
+//     console.log('bookingId');
 
-    fetch(`${homeUrl}/booking/getBookings/${bookingId}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+//     fetch(`${homeUrl}/booking/getBooking/${bookingId}`, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     })
 
-}
+// }
 
 
 
@@ -51,8 +51,8 @@ const bookTicket = () => {
 
         .then(response => response.json())
         .then(model => {
-           // console.log(model);
-            getBooking()
+            console.log(model);
+            //getBooking()
         })
         // .then(model => {
         //     createTicket()
