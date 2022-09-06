@@ -11,11 +11,26 @@ const newSurname = document.querySelector('#newSurname');
 const newEmailAddress = document.querySelector('#newEmailAddress');
 
 
+const getBooking = (bookingId) => {
+    console.log('bookingId');
+
+    fetch(`${homeUrl}/booking/getBookings/${bookingId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+}
+
+
+
 const bookTicket = () => {
     // const adultTicketQuant = adultTicket.value;
     const newForenameBook = newForename.value;
     const newSurnameBook = newSurname.value;
     const newEmailAddressBook = newEmailAddress.value;
+    //const screeningTimeBook = screeningTime.value;
     const seatRefBook = seatRef.value;
 
     const bookingData = {
@@ -26,7 +41,7 @@ const bookTicket = () => {
     }
     console.log(bookingData)
 
-    fetch(`http://localhost:8081/booking/createBooking`, {
+    fetch(`${homeUrl}/booking/createBooking`, {
         method: "POST",
         body: JSON.stringify(bookingData),
         headers: {
@@ -36,8 +51,24 @@ const bookTicket = () => {
 
         .then(response => response.json())
         .then(model => {
-            console.log(model);
-            //getBooking()
+           // console.log(model);
+            getBooking()
         })
+        // .then(model => {
+        //     createTicket()
+        // })
         .catch(err => console.error(` ${err}`));
+
+        
+    const createTicket = (bookingId) => {
+        const ticketData = {
+            "bookingId": bookingId,
+            "seatRef": seatRefBook,
+        }
+        console.log(ticketData)
+
+    }
 };
+
+
+
