@@ -38,8 +38,8 @@ public class FilmController {
 		return new ResponseEntity<List<Film>>(filmData, HttpStatus.OK);
 	}
 
-	@GetMapping("/getFilm/{filmID}")
-	public ResponseEntity<Film> getFilmId(@PathVariable Long filmId) {
+	@GetMapping("/getFilm/{filmId}")
+	public ResponseEntity<Film> getFilmId(@PathVariable("filmId") Long filmId) {
 		Film filmInfo = service.readSingleFilm(filmId);
 		return new ResponseEntity<Film>(filmInfo, HttpStatus.OK);
 

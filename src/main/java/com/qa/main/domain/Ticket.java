@@ -2,14 +2,12 @@ package com.qa.main.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,15 +22,11 @@ public class Ticket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ticketId;
 
-	@JoinColumn(name = "bookingId")
-	@NotNull
-	@ManyToOne(targetEntity = Booking.class)
-	private Booking bookingId;
+	@Column(nullable = false)
+	private Long bookingId;
 
-	@JoinColumn(name = "seatId")
-	@NotNull
-	@ManyToOne(targetEntity = Seat.class)
-	private Seat seatId;
+	@Column
+	private String seatRef;
 
 	@Autowired
 	public Ticket() {
@@ -40,28 +34,21 @@ public class Ticket {
 	}
 
 	@Autowired
-	public Ticket(Long ticketId, Booking bookingId, Seat seatId) {
-		super();
+	public Ticket(Long ticketId, Long bookingId, String seatRef) {
 		this.ticketId = ticketId;
 		this.bookingId = bookingId;
-		this.seatId = seatId;
+		this.seatRef = seatRef;
 	}
 
 	@Autowired
-	public Ticket(Booking bookingId, Seat seatId) {
-		super();
+	public Ticket(Long bookingId, String seatRef) {
 		this.bookingId = bookingId;
-		this.seatId = seatId;
+		this.seatRef = seatRef;
 	}
 
 	@Override
 	public String toString() {
-		return "Ticket [ticketId=" + ticketId + ", bookingId=" + bookingId + ", seatId=" + seatId + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(seatId, bookingId);
+		return "Ticket [ticketId=" + ticketId + ", bookingId=" + bookingId + ", seatRef=" + seatRef + "]";
 	}
 
 	@Override
@@ -73,7 +60,19 @@ public class Ticket {
 		if (getClass() != obj.getClass())
 			return false;
 		Ticket other = (Ticket) obj;
-		return Objects.equals(seatId, other.seatId) && Objects.equals(bookingId, other.bookingId);
+		return Objects.equals(bookingId, other.bookingId) && Objects.equals(seatRef, other.seatRef);
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(bookingId, seatRef);
+	}
+
+//	public Ticket(Long ticketId, Long bookingId, List<Seat> seats) {
+//		super();
+//		this.ticketId = ticketId;
+//		this.bookingId = bookingId;
+//		this.seats = seats;
+//	}
 
 }
