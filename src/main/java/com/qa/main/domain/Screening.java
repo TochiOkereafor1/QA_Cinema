@@ -94,22 +94,25 @@ public class Screening {
 
 	@Override
 	public String toString() {
-		return "Screening [id=" + screeningId + ", time=" + time + ", filmId=" + filmId + "]";
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		Screening Screening = (Screening) o;
-		return time == Screening.time && filmId == Screening.filmId && filmId.equals(Screening.filmId)
-				&& time.equals(Screening.time);
+		return "Screening [screeningId=" + screeningId + ", time=" + time + ", filmId=" + filmId + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(time, filmId);
+		return Objects.hash(bookings, filmId, time);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Screening other = (Screening) obj;
+		return Objects.equals(bookings, other.bookings) && Objects.equals(filmId, other.filmId)
+				&& Objects.equals(time, other.time);
+	}
+
 }
