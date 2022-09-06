@@ -55,9 +55,7 @@
                                     <div class="h5">Adult:</div>
                                     <div class="book-ticket-quantity">
                                         <label class="select-2 book-ticket-quantity-field">
-                                            <select class="bookTicket" data-book-ticket-price="1295"
-                                                data-book-ticket-type="0001" data-book-ticket-recognitionid=""
-                                                data-book-ticket-displayname="Adult" data-nr-booking-ticketsbtn="">
+                                            <select class="bookTicket" id="adultTicket">
                                                 <option value="0" selected="" data-nr-booking-ticket="">0</option>
                                                 <option value="1" data-nr-booking-ticket="">1</option>
                                                 <option value="2" data-nr-booking-ticket="">2</option>
@@ -71,7 +69,7 @@
                                         </label>
                                     </div>
                                     <div class="h5">Senior:</div>
-                                    <div class="book-ticket-quantity">
+                                    <!-- <div class="book-ticket-quantity">
                                         <label class="select-2 book-ticket-quantity-field">
                                             <select class="bookTicket" data-book-ticket-price="1295"
                                                 data-book-ticket-type="0001" data-book-ticket-recognitionid=""
@@ -87,7 +85,7 @@
                                                 <option value="8" data-nr-booking-ticket="">8</option>
                                             </select>
                                         </label>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                         </div>
@@ -96,8 +94,8 @@
                                 data-bs-dismiss="modal">Cancel</button>
                                 <div>
                                     <button type="button" class="add-button" data-bs-toggle="modal"
-                                        data-bs-target="#ticketModal">15:00</button>
-                        
+                                        data-bs-target="#ticketModal">Confirm</button>
+
                                     <div id="ticketModal" class="modal fade" tabindex="-1" aria-labelledby="ticketModalLabel"
                                         aria-hidden="true">
                                         <div class="modal-dialog">
