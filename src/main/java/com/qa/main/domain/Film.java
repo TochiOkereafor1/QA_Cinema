@@ -112,7 +112,7 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(duration, rating, title);
+		return Objects.hash(duration, rating, screenings, title);
 	}
 
 	@Override
@@ -125,7 +125,7 @@ public class Film {
 			return false;
 		Film other = (Film) obj;
 		return Objects.equals(duration, other.duration) && Objects.equals(rating, other.rating)
-				&& Objects.equals(title, other.title);
+				&& Objects.equals(screenings, other.screenings) && Objects.equals(title, other.title);
 	}
 
 }
