@@ -1,5 +1,6 @@
 package com.qa.main.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class BookingService {
 
 	public Booking readBooking(Long bookingId) {
 		return repo.findById(bookingId).get();
+	}
+
+	public List<Booking> readBooking2(String emailAddress) {
+		return repo.findBookingByEmailAddressSQL(emailAddress);
 	}
 
 	public Booking updateBooking(Booking updateBooking, Long bookingId) {

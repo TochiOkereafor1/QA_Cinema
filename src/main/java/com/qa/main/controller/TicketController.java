@@ -42,17 +42,17 @@ public class TicketController {
 		return new ResponseEntity<Ticket>(newTicket, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/getTicket/{bookingId}")
+	@GetMapping("/getTicketByBooking/{bookingId}")
 	public ResponseEntity<Ticket> getTicketbyBooking(@PathVariable("bookingId") Long bookingId) {
 		Ticket ticket = service.readTicketByBookingId(bookingId);
 		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/getTicket/{seatId}")
-	public ResponseEntity<Ticket> getTicketBySeat(@PathVariable("seatId") Long seatId) {
-		Ticket ticket = service.readTicketBySeatId(seatId);
-		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
-	}
+//	@GetMapping("/getTicketBySeat/{seatId}")
+//	public ResponseEntity<Ticket> getTicketBySeat(@PathVariable("seatId") Seat seatId) {
+//		Ticket ticket = service.readTicketBySeatId(seatId);
+//		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
+//	}
 
 	@DeleteMapping("/deleteTicket/{ticketId}")
 	public ResponseEntity<Boolean> deleteTicket(@PathVariable Long ticketId) {
