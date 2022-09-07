@@ -27,8 +27,8 @@ public class ScreeningServiceUnitTests {
 	@Test
 	public void createScreeningTest() {
 
-		Screening savedScreening = new Screening("10:00", 1L);
-		Screening repoScreening = new Screening(1L, "10:00", 1L);
+		Screening savedScreening = new Screening("13-09-2022", "10:00", 1L, 120L);
+		Screening repoScreening = new Screening(1L, "13-09-2022", "10:00", 1L, 120L);
 
 		Mockito.when(this.service.createScreening(savedScreening)).thenReturn(repoScreening);
 
@@ -40,9 +40,9 @@ public class ScreeningServiceUnitTests {
 	@Test
 	public void readSingleScreening() {
 		Long testId = 1L;
-		Screening readSingleScreening = new Screening("10:00", 1L);
-		Optional<Screening> mockOutputValid = Optional.ofNullable(new Screening(1L, "10:00", 1L));
-		Screening expectedOutput = new Screening(1L, "10:00", 1L);
+		Screening readSingleScreening = new Screening("13-09-2022", "10:00", 1L, 120L);
+		Optional<Screening> mockOutputValid = Optional.ofNullable(new Screening(1L, "13-09-2022", "10:00", 1L, 120L));
+		Screening expectedOutput = new Screening(1L, "13-09-2022", "10:00", 1L, 120L);
 		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
 		assertEquals(expectedOutput, this.service.readSingleScreening(testId));
 		Mockito.verify(this.repo, Mockito.times(1)).findById(testId);
@@ -50,9 +50,9 @@ public class ScreeningServiceUnitTests {
 
 	@Test
 	public void getAllScreeningsTest() {
-		Screening testScreening1 = new Screening(1L, "10:00", 1L);
-		Screening testScreening2 = new Screening(2L, "13:00", 2L);
-		Screening testScreening3 = new Screening(3L, "17:00", 3L);
+		Screening testScreening1 = new Screening(1L, "13-09-2022", "10:00", 1L, 120L);
+		Screening testScreening2 = new Screening(2L, "13-09-2022", "13:00", 3L, 120L);
+		Screening testScreening3 = new Screening(3L, "13-09-2022", "15:00", 2L, 120L);
 
 		List<Screening> record = new ArrayList<>();
 

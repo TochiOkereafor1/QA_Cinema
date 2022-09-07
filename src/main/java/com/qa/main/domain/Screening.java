@@ -22,7 +22,7 @@ public class Screening {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long screeningId;
-	
+
 	@Column(nullable = false)
 	private String date;
 
@@ -31,9 +31,9 @@ public class Screening {
 
 	@Column
 	private Long filmId;
-	
+
 	@Column
-	private Long total; 
+	private Long total;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
@@ -46,21 +46,30 @@ public class Screening {
 	// test constructor
 	@Autowired
 	public Screening(Long screeningId, String date, String time, Long filmId) {
-		super();
 		this.screeningId = screeningId;
-		this.date = date; 
+		this.date = date;
 		this.time = time;
 		this.filmId = filmId;
+	}
+
+	// allArgsConstructor
+	@Autowired
+	public Screening(Long screeningId, String date, String time, Long filmId, Long total) {
+		this.screeningId = screeningId;
+		this.date = date;
+		this.time = time;
+		this.filmId = filmId;
+		this.total = total;
 	}
 
 	// production constructor
 	@Autowired
 	public Screening(String date, String time, Long filmId, Long total) {
 		super();
-		this.date= date; 
+		this.date = date;
 		this.time = time;
 		this.filmId = filmId;
-		this.total =total;
+		this.total = total;
 	}
 
 	public Long getscreeningId() {
@@ -69,6 +78,14 @@ public class Screening {
 
 	public void setscreeningId(Long screeningId) {
 		this.screeningId = screeningId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String gettime() {
@@ -87,6 +104,14 @@ public class Screening {
 		this.filmId = filmId;
 	}
 
+	public Long getTotal() {
+		return total;
+	}
+
+	public void setTotal(Long total) {
+		this.total = total;
+	}
+
 	public List<Booking> getBookings() {
 		return bookings;
 	}
@@ -103,12 +128,13 @@ public class Screening {
 
 	@Override
 	public String toString() {
-		return "Screening [screeningId=" + screeningId + ", time=" + time + ", filmId=" + filmId + "]";
+		return "Screening [screeningId=" + screeningId + ", date=" + date + ", time=" + time + ", filmId=" + filmId
+				+ ", total=" + total + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bookings, filmId, time);
+		return Objects.hash(bookings, date, filmId, time, total);
 	}
 
 	@Override
@@ -120,8 +146,9 @@ public class Screening {
 		if (getClass() != obj.getClass())
 			return false;
 		Screening other = (Screening) obj;
-		return Objects.equals(bookings, other.bookings) && Objects.equals(filmId, other.filmId)
-				&& Objects.equals(time, other.time);
+		return Objects.equals(bookings, other.bookings) && Objects.equals(date, other.date)
+				&& Objects.equals(filmId, other.filmId) && Objects.equals(time, other.time)
+				&& Objects.equals(total, other.total);
 	}
 
 }
