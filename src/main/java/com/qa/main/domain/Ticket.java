@@ -25,7 +25,7 @@ public class Ticket {
 	@Column(nullable = false)
 	private Long bookingId;
 
-	@Column
+	@Column(unique = true)
 	private String seatRef;
 
 	@Autowired
