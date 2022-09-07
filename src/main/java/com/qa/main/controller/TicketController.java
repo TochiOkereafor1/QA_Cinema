@@ -35,7 +35,8 @@ public class TicketController {
 	public TicketController(TicketService service) {
 		this.service = service;
 	}
-
+	
+	@CrossOrigin
 	@PostMapping("/createTicket")
 	public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
 		Ticket newTicket = service.createTicket(ticket);
