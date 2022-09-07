@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -36,12 +37,16 @@ public class FilmServiceUnitTests {
 		Mockito.verify(this.repo, Mockito.times(1)).save(savedFilm);
 	}
 
-//	@Test
-//	public void removeFilmServiceTest() {
-//		Film repoFilm = new Film(1L, "Castaway", 143L, "PG-13");
-//		Mockito.when(this.service.removeFilm(1L)).thenReturn(false);
-//
-//	}
+	@Test
+	public void readSingleFilm() {
+		Long testId = 1L;
+		Film readSingleFilm = new Film("Cast Away", 143L, "PG-13");
+		Optional<Film> mockOutputValid = Optional.ofNullable(new Film(1L, "Cast Away", 143L, "PG-13"));
+		Film expectedOutput = new Film(1L, "Cast Away", 143L, "PG-13");
+		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
+		assertEquals(expectedOutput, this.service.readSingleFilm(testId));
+		Mockito.verify(this.repo, Mockito.times(1)).findById(testId);
+	}
 
 	@Test
 	public void getAllFilmsTest() {
@@ -55,6 +60,12 @@ public class FilmServiceUnitTests {
 
 	}
 
+//	@Test
+//	public void removeFilmServiceTest() {
+//		Film repoFilm = new Film(1L, "Castaway", 143L, "PG-13");
+//		Mockito.when(this.service.removeFilm(1L)).thenReturn(false);
+//
+//	}
 
 //	@Test
 //	public void readSingleFilmTest() {
