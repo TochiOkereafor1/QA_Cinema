@@ -38,8 +38,8 @@
         <p>This is the main content of the page</p>
 
         <div>
-            <button type="button" class="add-button" data-bs-toggle="modal"
-                data-bs-target="#screeningModal" screeningTime="1">15:00</button>
+            <button type="button" class="add-button6" data-bs-toggle="modal"
+                data-bs-target="#screeningModal" id=1>15:00</button>
 
             <div id="screeningModal" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
                 aria-hidden="true">
@@ -53,9 +53,7 @@
                             <div class="container-fluid">
                                 <form>
                                     <div class="h5">Adult:</div>
-                                    <label for="seatRef" class="form-label mt-2" style="color: black;">Pick a Seat</label>
-                                    <input type="number" class="form-control" id="seatRef">
-                                    <!-- <div class="book-ticket-quantity">
+                                    <div class="book-ticket-quantity">
                                         <label class="select-2 book-ticket-quantity-field">
                                             <select class="bookTicket" id="adultTicket">
                                                 <option value="0" selected="" data-nr-booking-ticket="">0</option>
@@ -69,13 +67,11 @@
                                                 <option value="8" data-nr-booking-ticket="">8</option>
                                             </select>
                                         </label>
-                                    </div> -->
-                                    <!-- <div class="h5">Senior:</div>
+                                    </div>
+                                    <div class="h5">Child:</div>
                                     <div class="book-ticket-quantity">
                                         <label class="select-2 book-ticket-quantity-field">
-                                            <select class="bookTicket" data-book-ticket-price="1295"
-                                                data-book-ticket-type="0001" data-book-ticket-recognitionid=""
-                                                data-book-ticket-displayname="Adult" data-nr-booking-ticketsbtn="">
+                                            <select class="bookTicket" id="childTicket">
                                                 <option value="0" selected="" data-nr-booking-ticket="">0</option>
                                                 <option value="1" data-nr-booking-ticket="">1</option>
                                                 <option value="2" data-nr-booking-ticket="">2</option>
@@ -87,7 +83,23 @@
                                                 <option value="8" data-nr-booking-ticket="">8</option>
                                             </select>
                                         </label>
-                                    </div> -->
+                                    </div>
+                                    <div class="h5">Concession:</div>
+                                    <div class="book-ticket-quantity">
+                                        <label class="select-2 book-ticket-quantity-field">
+                                            <select class="bookTicket" id="concTicket">
+                                                <option value="0" selected="" data-nr-booking-ticket="">0</option>
+                                                <option value="1" data-nr-booking-ticket="">1</option>
+                                                <option value="2" data-nr-booking-ticket="">2</option>
+                                                <option value="3" data-nr-booking-ticket="">3</option>
+                                                <option value="4" data-nr-booking-ticket="">4</option>
+                                                <option value="5" data-nr-booking-ticket="">5</option>
+                                                <option value="6" data-nr-booking-ticket="">6</option>
+                                                <option value="7" data-nr-booking-ticket="">7</option>
+                                                <option value="8" data-nr-booking-ticket="">8</option>
+                                            </select>
+                                        </label>
+                                    </div>
                                 </form>
                             </div>
                         </div>

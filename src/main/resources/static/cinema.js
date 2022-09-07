@@ -3,13 +3,20 @@ const homeUrl = "http://localhost:8081";
 
 const screeningTime = document.querySelector('#screeningTime');
 const model = document.querySelector('#screeningModal');
-// const adultTicket = document.querySelector("adultTicket");
-const seatRef = document.querySelector('#seatRef');
+const adultTicket = document.querySelector("#adultTicket");
+const childTicket = document.querySelector("#childTicket");
+const concTicket = document.querySelector("#concTicket");
+// const seatRef = document.querySelector('#seatRef');
+//const screeningId = document.querySelector('#screeningId');
+const screeningId = document.querySelector('.add-button6').id;
 
 const newForename = document.querySelector('#newForename');
 const newSurname = document.querySelector('#newSurname');
 const newEmailAddress = document.querySelector('#newEmailAddress');
 
+const myFunction = () => {
+    
+}
 
 // const getBooking = (bookingId) => {
 //     console.log('bookingId');
@@ -23,21 +30,50 @@ const newEmailAddress = document.querySelector('#newEmailAddress');
 
 // }
 
+// const createTicket = (bookingId) => {
+//     const ticketData = {
+//         "bookingId": bookingId,
+//         "seatRef": seatRef.value,
+//     }
+//     fetch(`${homeUrl}/booking/createTicket`, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             mode: 'cors',
 
+
+//         },
+//         body: JSON.stringify(ticketData),
+//     })
+//         .then(response => response.json())
+//         .then(data => console.log(data))
+//         .catch(err => console.err(err))
+
+
+//     console.log(ticketData)
+
+
+
+// }
 
 const bookTicket = () => {
-    // const adultTicketQuant = adultTicket.value;
+    const adultTicketBook = adultTicket.value;
+    const childTicketBook = childTicket.value;
+    const concTicketBook = concTicket.value;
     const newForenameBook = newForename.value;
     const newSurnameBook = newSurname.value;
     const newEmailAddressBook = newEmailAddress.value;
-    //const screeningTimeBook = screeningTime.value;
-    const seatRefBook = seatRef.value;
+    const screeningIdBook = screeningId;
+    //const seatRefBook = seatRef.value;
 
     const bookingData = {
         "forename": newForenameBook,
         "surname": newSurnameBook,
         "emailAddress": newEmailAddressBook,
-        "screeningId": seatRefBook,
+        "screeningId": screeningIdBook,
+        "adultTickets": adultTicketBook,
+        "childTickets": childTicketBook,
+        "concessionTickets": concTicketBook,
     }
     console.log(bookingData)
 
@@ -49,10 +85,9 @@ const bookTicket = () => {
         }
     })
 
-        .then(response => response.json())
-        .then(model => {
-            console.log(model);
-            //getBooking()
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
         })
         // .then(model => {
         //     createTicket()
