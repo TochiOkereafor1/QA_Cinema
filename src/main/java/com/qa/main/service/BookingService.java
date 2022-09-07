@@ -1,5 +1,6 @@
 package com.qa.main.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class BookingService {
 		return repo.findById(bookingId).get();
 	}
 
+	public List<Booking> readBooking2(String emailAddress) {
+		return repo.findBookingByEmailAddressSQL(emailAddress);
+	}
+
 	public Booking updateBooking(Booking updateBooking, Long bookingId) {
 		Optional<Booking> currentBooking = this.repo.findById(bookingId);
 		Booking oldBooking = currentBooking.get();
@@ -36,6 +41,9 @@ public class BookingService {
 		oldBooking.setForename(updateBooking.getSurname());
 		oldBooking.setEmailAddress(updateBooking.getEmailAddress());
 		oldBooking.setScreeningId(updateBooking.getScreeningId());
+		oldBooking.setAdultTickets(updateBooking.getAdultTickets());
+		oldBooking.setChildTickets(updateBooking.getChildTickets());
+		oldBooking.setConcessionTickets(updateBooking.getConcessionTickets());
 		return repo.save(oldBooking);
 	}
 

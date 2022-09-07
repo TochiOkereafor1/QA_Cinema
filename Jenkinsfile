@@ -10,8 +10,8 @@ pipeline {
             steps {
                 sh '''
                 mvn clean install
-                mkdir -p /home/jenkins/project-wars
-                mv ./target/*.war /home/jenkins/project-wars/project-${BUILD_NUMBER}.war
+                mkdir -p /home/jenkins/project-jars
+                mv ./target/*.jar /home/jenkins/project-jars/project-${BUILD_NUMBER}.jar
                 '''
             }
         }
@@ -26,7 +26,7 @@ Description=My Springboot App
 User=ubuntu
 Type=simple
 
-ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-$build_number.war
+ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-'$build_number'.jar
 
 [Install]
 WantedBy=multi-user.target' > /home/jenkins/MyApp.service

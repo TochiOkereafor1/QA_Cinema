@@ -1,14 +1,16 @@
 package com.qa.main.domain;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,32 +22,45 @@ public class Screening {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long screeningId;
+	
+	@Column(nullable = false)
+	private String date;
 
 	@Column(nullable = false)
 	private String time;
 
-	@JoinColumn(name = "filmId")
-	@ManyToOne(targetEntity = Film.class)
-	private Film filmId;
+	@Column
+	private Long filmId;
+	
+	@Column
+	private Long total; 
 
-//    @OneToMany(mappedBy = "screeningId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Booking booking;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
+	private List<Booking> bookings;
+
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
+//	private Booking booking;
 
 	// test constructor
 	@Autowired
-	public Screening(Long screeningId, String time, Film filmId) {
+	public Screening(Long screeningId, String date, String time, Long filmId) {
 		super();
 		this.screeningId = screeningId;
+		this.date = date; 
 		this.time = time;
 		this.filmId = filmId;
 	}
 
 	// production constructor
 	@Autowired
-	public Screening(String time, Film filmId) {
+	public Screening(String date, String time, Long filmId, Long total) {
 		super();
+		this.date= date; 
 		this.time = time;
 		this.filmId = filmId;
+		this.total =total;
 	}
 
 	public Long getscreeningId() {
@@ -64,12 +79,20 @@ public class Screening {
 		this.time = time;
 	}
 
-	public Film getfilmId() {
+	public Long getfilmId() {
 		return filmId;
 	}
 
-	public void setfilmId(Film filmId) {
+	public void setfilmId(Long filmId) {
 		this.filmId = filmId;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	@Autowired
@@ -80,22 +103,25 @@ public class Screening {
 
 	@Override
 	public String toString() {
-		return "Screening [id=" + screeningId + ", time=" + time + ", filmId=" + filmId + "]";
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		Screening Screening = (Screening) o;
-		return time == Screening.time && filmId == Screening.filmId && filmId.equals(Screening.filmId)
-				&& time.equals(Screening.time);
+		return "Screening [screeningId=" + screeningId + ", time=" + time + ", filmId=" + filmId + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(time, filmId);
+		return Objects.hash(bookings, filmId, time);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Screening other = (Screening) obj;
+		return Objects.equals(bookings, other.bookings) && Objects.equals(filmId, other.filmId)
+				&& Objects.equals(time, other.time);
+	}
+
 }

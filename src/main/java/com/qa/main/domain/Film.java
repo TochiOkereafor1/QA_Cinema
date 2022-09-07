@@ -1,12 +1,16 @@
 package com.qa.main.domain;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +32,22 @@ public class Film {
 	@Column(nullable = false)
 	private String rating;
 
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "filmId", referencedColumnName = "filmId")
+	private List<Screening> screenings;
+
 	@Autowired
 	public Film() {
 
+	}
+
+	@Autowired
+	public Film(Long filmId, String title, Long duration, String rating, List<Screening> screenings) {
+		this.filmId = filmId;
+		this.title = title;
+		this.duration = duration;
+		this.rating = rating;
+		this.screenings = screenings;
 	}
 
 	@Autowired
@@ -85,9 +102,17 @@ public class Film {
 		this.rating = rating;
 	}
 
+	public List<Screening> getScreenings() {
+		return screenings;
+	}
+
+	public void setScreenings(List<Screening> screenings) {
+		this.screenings = screenings;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(duration, rating, title);
+		return Objects.hash(duration, rating, screenings, title);
 	}
 
 	@Override
@@ -100,7 +125,7 @@ public class Film {
 			return false;
 		Film other = (Film) obj;
 		return Objects.equals(duration, other.duration) && Objects.equals(rating, other.rating)
-				&& Objects.equals(title, other.title);
+				&& Objects.equals(screenings, other.screenings) && Objects.equals(title, other.title);
 	}
 
 }
