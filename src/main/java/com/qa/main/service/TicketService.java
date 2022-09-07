@@ -30,9 +30,9 @@ public class TicketService {
 		return repo.findAll();
 	}
 
-	public Ticket readTicketByBookingId(Long bookingId) {
-		List<Ticket> existing = repo.findTicketByBookingSQL(bookingId);
-		return existing.get(0);
+	public List<Ticket> readTicketByBookingId(Long bookingId) {
+		return repo.findTicketByBookingSQL(bookingId);
+
 	}
 
 //	public Ticket readTicketBySeatId(Seat seatId) {

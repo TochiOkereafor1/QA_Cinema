@@ -51,11 +51,11 @@ public class Booking {
 	private List<Ticket> tickets;
 
 	@Autowired
-	public Booking(Long screeningId, String forename, String surname, String emailAddress) {
-		this.screeningId = screeningId;
+	public Booking(String forename, String surname, String emailAddress, Long screeningId) {
 		this.forename = forename;
 		this.surname = surname;
 		this.emailAddress = emailAddress;
+		this.screeningId = screeningId;
 	}
 
 	@Autowired

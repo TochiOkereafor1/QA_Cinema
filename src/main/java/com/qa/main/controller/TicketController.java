@@ -45,8 +45,8 @@ public class TicketController {
 
 	@GetMapping("/getTicketByBooking/{bookingId}")
 	public ResponseEntity<Ticket> getTicketbyBooking(@PathVariable("bookingId") Long bookingId) {
-		Ticket ticket = service.readTicketByBookingId(bookingId);
-		return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
+		List<Ticket> ticket = service.readTicketByBookingId(bookingId);
+		return new ResponseEntity<Ticket>((Ticket) ticket, HttpStatus.ACCEPTED);
 	}
 
 //	@GetMapping("/getTicketBySeat/{seatId}")

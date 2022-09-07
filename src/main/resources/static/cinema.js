@@ -23,16 +23,16 @@ const newEmailAddress = document.querySelector('#newEmailAddress');
 
 // }
 
-
 const createTicket = (bookingId) => {
     const ticketData = {
         "bookingId": bookingId,
         "seatRef": seatRef.value,
     }
-    fetch(`${homeUrl}/ticket/createTicket`, {
+    fetch(`${homeUrl}/booking/createTicket`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            mode: 'cors',
 
 
         },
@@ -44,8 +44,10 @@ const createTicket = (bookingId) => {
 
 
     console.log(ticketData)
-}
 
+
+
+}
 
 const bookTicket = () => {
     // const adultTicketQuant = adultTicket.value;
@@ -73,26 +75,91 @@ const bookTicket = () => {
         //body: JSON.stringify(bookingData),
     })
 
-        .then(response => response.json())
-        .then(model => {
-            console.log(model);
-            //getBooking()
+        .then((response) => response.json())
+        .then((data) => {
+            createTicket(data.bookingId);
         })
-        // .then(model => {
-        //     createTicket()
-        // })
-        .catch(err => console.error(` ${err}`));
-        
 
-    const createTicket = (bookingId) => {
-        const ticketData = {
-            "bookingId": bookingId,
-            "seatRef": seatRefBook,
-        }
-        console.log(ticketData)
+         .catch(err => console.error(`${err}`));
 
-    }
+
 };
 
+
+
+// function onLoaderFunc() {
+//     $(".seatStructure *").prop("disabled", true);
+//     $(".displayerBoxes *").prop("disabled", true);
+// }
+// function takeData() {
+//     if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
+//         alert("Please Enter your Name and Number of Seats");
+//     }
+//     else {
+//         $(".inputForm *").prop("disabled", true);
+//         $(".seatStructure *").prop("disabled", false);
+//         document.getElementById("notification").innerHTML = "<b style='margin-bottom:0px;background:yellow;'>Please Select your Seats NOW!</b>";
+//     }
+// }
+
+
+// function updateTextArea() {
+
+//     if ($("input:checked").length == ($("#Numseats").val())) {
+//         $(".seatStructure *").prop("disabled", true);
+
+//         var allNameVals = [];
+//         var allNumberVals = [];
+//         var allSeatsVals = [];
+
+//         //Storing in Array
+//         allNameVals.push($("#Username").val());
+//         allNumberVals.push($("#Numseats").val());
+//         $('#seatsBlock :checked').each(function () {
+//             allSeatsVals.push($(this).val());
+//         });
+
+//         //Displaying 
+//         $('#nameDisplay').val(allNameVals);
+//         $('#NumberDisplay').val(allNumberVals);
+//         $('#seatsDisplay').val(allSeatsVals);
+//     }
+//     else {
+//         alert("Please select " + ($("#Numseats").val()) + " seats") //creates alert box if constraints aren't fulfilled
+//     }
+// }
+
+
+// function myFunction() {
+//     alert($("input:checked").length);
+// }
+
+/*
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+*/
+
+
+// $(":checkbox").click(function () {
+//     if ($("input:checked").length == ($("#Numseats").val())) {
+//         $(":checkbox").prop('disabled', true);
+//         $(':checked').prop('disabled', false);
+//     }
+//     else {
+//         $(":checkbox").prop('disabled', false);
+//     }
+// });
 
 
