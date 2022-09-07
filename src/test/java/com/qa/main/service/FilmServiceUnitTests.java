@@ -39,7 +39,6 @@ public class FilmServiceUnitTests {
 //	@Test
 //	public void removeFilmServiceTest() {
 //		Film repoFilm = new Film(1L, "Castaway", 143L, "PG-13");
-//		
 //		Mockito.when(this.service.removeFilm(1L)).thenReturn(false);
 //
 //	}
@@ -55,5 +54,12 @@ public class FilmServiceUnitTests {
 		Mockito.when(this.service.getAllFilms()).thenReturn(record);
 
 	}
+
+
+//	@Test
+//	public void readSingleFilmTest() {
+//		Film repoFilm = new Film(1L, "Castaway", 143L, "PG-13");
+//
+//		Mockito.when(repo.findById(repoFilm.getFilmId())).thenReturn(Optional.of(repoFilm));
 
 }

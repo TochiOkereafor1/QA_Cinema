@@ -37,7 +37,7 @@ public class BookingModelUnitTests {
 
 	@Test
 	public void testBookingConstructor2() {
-		Booking testBooking = new Booking("Richard", "Spring", "rspring@gmail.com", 1L);
+		Booking testBooking = new Booking("rspring@gmail.com", "Richard", "Spring", 1L);
 		assertEquals("Richard", testBooking.getForename());
 		assertEquals("Spring", testBooking.getSurname());
 		assertEquals("rspring@gmail.com", testBooking.getEmailAddress());
