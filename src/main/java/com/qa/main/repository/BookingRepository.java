@@ -20,4 +20,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	@Query(value = "SELECT * from Booking WHERE emailAddress = ?1", nativeQuery = true)
 	public List<Booking> findBookingByEmailAddressSQL(String emailAddress);
 
+	@Query(value = "SELECT * from Booking WHERE bookingId = ?1", nativeQuery = true)
+	public List<Booking> findBookingByIdSWL(Long bookingId);
+
 }
