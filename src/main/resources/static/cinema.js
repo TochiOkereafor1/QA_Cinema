@@ -23,7 +23,30 @@ const newEmailAddress = document.querySelector('#newEmailAddress');
 
 // }
 
+const createTicket = (bookingId) => {
+    const ticketData = {
+        "bookingId": bookingId,
+        "seatRef": seatRef.value,
+    }
+    fetch(`${homeUrl}/booking/createTicket`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            mode: 'cors',
 
+        },
+        body: JSON.stringify(ticketData),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.err(err))
+    
+
+    console.log(ticketData)
+
+
+
+}
 
 const bookTicket = () => {
     // const adultTicketQuant = adultTicket.value;
@@ -49,25 +72,14 @@ const bookTicket = () => {
         }
     })
 
-        .then(response => response.json())
-        .then(model => {
-            console.log(model);
-            //getBooking()
+        .then((response) => response.json())
+        .then((data) => {
+            createTicket(data.bookingId); 
         })
-        // .then(model => {
-        //     createTicket()
-        // })
-        .catch(err => console.error(` ${err}`));
 
-        
-    const createTicket = (bookingId) => {
-        const ticketData = {
-            "bookingId": bookingId,
-            "seatRef": seatRefBook,
-        }
-        console.log(ticketData)
+        .catch(err => console.error(`${err}`));
 
-    }
+
 };
 
 

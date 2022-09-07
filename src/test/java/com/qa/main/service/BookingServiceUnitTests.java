@@ -54,6 +54,7 @@ public class BookingServiceUnitTests {
 //		Optional<Booking> mockOutputValid = Optional
 //				.ofNullable(new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L));
 //		Booking expectedOutput = new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L);
+
 //		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
 //		Mockito.when(this.repo.save(expectedOutput)).thenReturn(expectedOutput);
 //		assertEquals(expectedOutput, this.service.updateBooking(expectedOutput, testId));
