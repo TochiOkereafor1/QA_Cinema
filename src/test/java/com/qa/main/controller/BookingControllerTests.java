@@ -34,7 +34,7 @@ public class BookingControllerTests {
 
 	@Test
 	public void createBookingTest() throws Exception {
-		Booking testBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L);
+		Booking testBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
 
 		Mockito.when(this.service.createBooking(testBooking)).thenReturn(testBooking);
 

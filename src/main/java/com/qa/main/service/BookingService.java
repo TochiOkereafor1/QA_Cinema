@@ -41,6 +41,9 @@ public class BookingService {
 		oldBooking.setForename(updateBooking.getSurname());
 		oldBooking.setEmailAddress(updateBooking.getEmailAddress());
 		oldBooking.setScreeningId(updateBooking.getScreeningId());
+		oldBooking.setAdultTickets(updateBooking.getAdultTickets());
+		oldBooking.setChildTickets(updateBooking.getChildTickets());
+		oldBooking.setConcessionTickets(updateBooking.getConcessionTickets());
 		return repo.save(oldBooking);
 	}
 

@@ -25,8 +25,8 @@ public class BookingServiceUnitTests {
 	@Test
 	public void createBookingTest() {
 
-		Booking savedBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L);
-		Booking repoBooking = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L);
+		Booking savedBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
+		Booking repoBooking = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
 
 		Mockito.when(this.service.createBooking(savedBooking)).thenReturn(repoBooking);
 
@@ -38,33 +38,33 @@ public class BookingServiceUnitTests {
 	@Test
 	public void testGetById() {
 		Long testId = 1L;
-		Booking readBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L);
+		Booking readBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
 		Optional<Booking> mockOutputValid = Optional
-				.ofNullable(new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L));
-		Booking expectedOutput = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L);
+				.ofNullable(new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0));
+		Booking expectedOutput = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
 		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
 		assertEquals(expectedOutput, this.service.readBooking(testId));
 		Mockito.verify(this.repo, Mockito.times(1)).findById(testId);
 	}
 
-//	@Test
-//	public void testUpdate() {
-//		Long testId = 1L;
-//		Booking updateBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L);
-//		Optional<Booking> mockOutputValid = Optional
-//				.ofNullable(new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L));
-//		Booking expectedOutput = new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L);
+	@Test
+	public void testUpdate() {
+		Long testId = 1L;
+		Booking updateBooking = new Booking("Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
+		Optional<Booking> mockOutputValid = Optional
+				.ofNullable(new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L, 2, 1, 1));
+		Booking expectedOutput = new Booking(1L, "Andrew", "Pimlott", "apimlott@gmail.com", 2L, 2, 1, 1);
 
-//		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
-//		Mockito.when(this.repo.save(expectedOutput)).thenReturn(expectedOutput);
-//		assertEquals(expectedOutput, this.service.updateBooking(expectedOutput, testId));
-//		Mockito.verify(this.repo, Mockito.times(1)).save(expectedOutput);
-//		Mockito.verify(this.repo, Mockito.times(1)).findById(testId);
-//	}
+		Mockito.when(this.repo.findById(testId)).thenReturn(mockOutputValid);
+		Mockito.when(this.repo.save(expectedOutput)).thenReturn(expectedOutput);
+		assertEquals(expectedOutput, this.service.updateBooking(expectedOutput, testId));
+		Mockito.verify(this.repo, Mockito.times(1)).save(expectedOutput);
+		Mockito.verify(this.repo, Mockito.times(1)).findById(testId);
+	}
 
 	@Test
 	public void testDelete() {
-		Booking deleteBooking = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L);
+		Booking deleteBooking = new Booking(1L, "Andrew", "Slator", "aslator@gmail.com", 1L, 1, 0, 0);
 
 		Mockito.when(this.repo.findById(deleteBooking.getBookingId())).thenReturn(Optional.of(deleteBooking));
 		this.service.deleteBooking(deleteBooking.getBookingId());
