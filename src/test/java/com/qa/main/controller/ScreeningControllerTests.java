@@ -34,7 +34,7 @@ public class ScreeningControllerTests {
 
 	@Test
 	public void createScreeningTest() throws Exception {
-		Screening testScreening = new Screening("10:00", 1L);
+		Screening testScreening = new Screening("13-09-2022", "10:00", 1L, 120L);
 
 		Mockito.when(this.service.createScreening(testScreening)).thenReturn(testScreening);
 
