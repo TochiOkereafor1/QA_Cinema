@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 <<- _EOF_
+                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 << EOF
                 git clone https://github.com/TochiOkereafor1/QA_Cinema.git
                 cd QA_Cinema
                 git checkout dev
@@ -17,14 +17,13 @@ pipeline {
                 mvn clean install
                 mkdir -p /home/jenkins/project-jars
                 mv ./target/*.jar /home/jenkins/project-jars/project-${BUILD_NUMBER}.jar
-                EOF
                 '''
             }
         }
         stage('Deploy') {
             steps {
                 sh '''
-                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 <<- _EOF_
+                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 << EOF
                 build_number=${BUILD_NUMBER}
                 echo '[Unit]
 Description=My Springboot App
@@ -40,7 +39,6 @@ WantedBy=multi-user.target' > /home/jenkins/MyApp.service
                 sudo mv /home/jenkins/MyApp.service /etc/systemd/system/MyApp.service
                 sudo systemctl daemon-reload
                 sudo systemctl restart MyApp  
-                EOF
                 '''
             }
         }
