@@ -22,12 +22,18 @@ public class Screening {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long screeningId;
+	
+	@Column(nullable = false)
+	private String date;
 
 	@Column(nullable = false)
 	private String time;
 
 	@Column
 	private Long filmId;
+	
+	@Column
+	private Long total; 
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "screeningId", referencedColumnName = "screeningId")
@@ -39,19 +45,22 @@ public class Screening {
 
 	// test constructor
 	@Autowired
-	public Screening(Long screeningId, String time, Long filmId) {
+	public Screening(Long screeningId, String date, String time, Long filmId) {
 		super();
 		this.screeningId = screeningId;
+		this.date = date; 
 		this.time = time;
 		this.filmId = filmId;
 	}
 
 	// production constructor
 	@Autowired
-	public Screening(String time, Long filmId) {
+	public Screening(String date, String time, Long filmId, Long total) {
 		super();
+		this.date= date; 
 		this.time = time;
 		this.filmId = filmId;
+		this.total =total;
 	}
 
 	public Long getscreeningId() {
