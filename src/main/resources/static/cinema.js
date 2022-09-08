@@ -8,15 +8,22 @@ const childTicket = document.querySelector("#childTicket");
 const concTicket = document.querySelector("#concTicket");
 // const seatRef = document.querySelector('#seatRef');
 //const screeningId = document.querySelector('#screeningId');
-const screeningId = document.querySelector('.add-button6').id;
 
+var screeningId = 1;
 const newForename = document.querySelector('#newForename');
 const newSurname = document.querySelector('#newSurname');
 const newEmailAddress = document.querySelector('#newEmailAddress');
 
-const myFunction = () => {
-    
-}
+// const screening1 = document.querySelector('#screening1');
+// const screening2 = document.querySelector('#screening2');
+
+// screening1.onclick = function () {
+//     screeningId = 1;
+// }
+
+// screening2.onclick = function () {
+//     screeningId = 2;
+// }
 
 // const getBooking = (bookingId) => {
 //     console.log('bookingId');
@@ -90,7 +97,7 @@ const bookTicket = () => {
             console.log(data);
         })
 
-         .catch(err => console.error(`${err}`));
+        .catch(err => console.error(`${err}`));
 
 
 };
