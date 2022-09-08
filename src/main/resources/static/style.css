@@ -48,6 +48,7 @@ background-color: #ff9500;
 
 .centre {
   margin: 10px;
+  padding-top: 5%;
   overflow: hidden;
 }
 
@@ -57,12 +58,12 @@ background-color: #ff9500;
 
 .filmTitle {
   float: left;
-  margin-left: 25%;
+  margin-left: 10%;
 }
 
 .filmItemCert {
   float: right;
-  margin-right: 25%;
+  margin-right: 15%;
   margin-top: 2.5%;
 }
 
