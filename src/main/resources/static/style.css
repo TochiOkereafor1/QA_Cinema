@@ -5,6 +5,7 @@ body{
     background-image: url(popcorn.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+    background-attachment: fixed;
     flex-flow: column wrap;
     align-content: center;
     text-align: center;
@@ -46,8 +47,6 @@ overflow:hidden
   float: left;
 }
 
-
-=======
 .filmItemCert{
   float:right;
   margin: auto
