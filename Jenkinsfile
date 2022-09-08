@@ -9,6 +9,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 << EOF
+                git clone https://github.com/TochiOkereafor1/QA_Cinema.git
+                cd QA_Cinema
+                git checkout dev
+                git pull
                 mvn clean install
                 mkdir -p /home/jenkins/project-jars
                 mv ./target/*.jar /home/jenkins/project-jars/project-${BUILD_NUMBER}.jar
@@ -18,12 +23,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 << EOF
                 build_number=${BUILD_NUMBER}
                 echo '[Unit]
 Description=My Springboot App
 
 [Service]
-User=ubuntu
+User=jenkins
 Type=simple
 
 ExecStart=/usr/bin/java -jar /home/jenkins/project-wars/project-'$build_number'.jar

@@ -39,6 +39,7 @@ public class Booking {
 	@Column(nullable = false, columnDefinition = "int default '0'")
 	private int adultTickets;
 
+
 	@Column(nullable = false, columnDefinition = "int default '0'")
 	private int childTickets;
 
