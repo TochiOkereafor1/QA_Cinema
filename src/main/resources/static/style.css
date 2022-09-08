@@ -36,6 +36,8 @@ display: inline-flex;
 
 .poster{
   margin: 10px;
+  height: 372px;
+  width: 267px;
 }
 
 .centre{
