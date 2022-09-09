@@ -1,0 +1,411 @@
+<html lang="en" class=""><head>
+
+    <meta charset="UTF-8">
+    <title>CodePen Demo</title>
+  
+    <meta name="robots" content="noindex">
+  
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+    <link rel="canonical" href="https://codepen.io/shaikmaqsood/pen/RowwzV">
+  
+    
+    
+  
+    <style class="INLINE_PEN_STYLESHEET_ID">
+      body
+  {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  
+  #Username
+  {
+    border:none;
+    border-bottom:1px solid;
+  }
+  
+  .screen
+  {
+    width:100%;
+    height:20px;
+    background:#4388cc;
+    color:#fff;
+    line-height:20px;
+    font-size:15px;
+  }
+  
+  .smallBox::before
+  {
+    content:".";
+    width:15px;
+    height:15px;
+    float:left;
+    margin-right:10px;
+  }
+  .greenBox::before
+  {
+    content:"";
+    background:Green;
+  }
+  .redBox::before
+  {
+    content:"";
+    background:Red;
+  }
+  .emptyBox::before
+  {
+    content="";
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+      background-color:#ccc;
+  }
+  
+  .seats
+  {
+    border:1px solid red;background:yellow;
+  } 
+  
+  
+  
+  .seatGap
+  {
+    width:40px;
+  }
+  
+  .seatVGap
+  {
+    height:40px;
+  }
+  
+  table
+  {
+    text-align:center;
+  }
+  
+  
+  .Displaytable
+  {
+    text-align:center;
+  }
+  .Displaytable td, .Displaytable th {
+      border: 1px solid;
+      text-align: left;
+  }
+  
+  textarea
+  {
+    border:none;
+    background:transparent;
+  }
+  
+  
+  
+  input[type=checkbox] {
+      width:0px;
+      margin-right:18px;
+  }
+  
+  input[type=checkbox]:before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      vertical-align:middle;
+      text-align: center;
+      box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+      background-color:#ccc;
+  }
+  
+  input[type=checkbox]:checked:before {
+      background-color:Green;
+      font-size: 15px;
+  }
+  
+  
+  
+    </style>
+  
+    
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-7549a40147ccd0ba0a6b5373d87e770e49bb4689f1c2dc30cccc7463f207f997.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-5e03f34e38152f20eb79c96b0b89c2d99c5085e9ae9386dc71e2f0b3c30bf513.js"></script>
+  <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+  </head>
+  
+  <body onload="onLoaderFunc()">
+    <header>
+        <a href="./index.html"><img src="./CinemaIcon.png" style="height: 150px; width: 150px"></a> <h1>Welcome to QA Cinema</h1>
+        <br>
+    </header>
+    <subhead>
+        <nav class="flex-container">
+            <a href="./index.html"><button class = "btn">Home</button></a>
+            <a href="./whatsOn.html"><button class = "btn">What's On</button></a>
+            <a href="./Screens.html"><button class = "btn">Screens</button></a>
+            <a href="./classification.html"><button class = "btn">Classification info</button></a></button>
+            <a href="./hours.html"><button class = "btn">Opening Hours</button></a></button>
+            <a href="./gettingHere.html"><button class = "btn">Getting Here</button></a>
+            <a href="./about.html"><button class = "btn">About</button></a>
+        </nav>
+    </subhead>
+    
+  
+  <div class="inputForm">
+  <center>
+    <div>
+        Forename: <input type="text" id="Username" required="">
+        <!-- Surname: <input type="text" id="surname" required=""> -->
+    </div>
+    <!-- <div>
+        Email Address: <input type="text" id="emailAddress" required="">
+    </div> -->
+
+    <div>
+        Number of Seats: <input type="number" id="Numseats" required="">
+    </div>
+    <br><br>
+    <button onclick="takeData()">Start Selecting</button>
+  </center>
+  </div>
+    
+  
+  <div class="seatStructure">
+  <center>
+    
+  <p id="notification"></p><br><table id="seatsBlock">
+   
+    <tbody><tr>
+      <td colspan="14"><div class="screen">SCREEN</div></td>
+      <td rowspan="20">
+        <div class="smallBox greenBox">Selected Seat</div> <br>
+        <div class="smallBox redBox">Reserved Seat</div><br>
+        <div class="smallBox emptyBox">Empty Seat</div><br>
+      </td>
+      
+      
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td></td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+  </tr>
+    
+  <tr>
+      <td>A</td>
+      <td><input type="checkbox" class="seats" value="A1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A5" disabled=""></td>
+      <td class="seatGap"></td>
+      <td><input type="checkbox" class="seats" value="A6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="A12" disabled=""></td>
+    </tr>
+    
+    <tr>
+      <td>B</td>
+      <td><input type="checkbox" class="seats" value="B1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="B6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="B12" disabled=""></td>
+    </tr>
+    
+    <tr>
+      <td>C</td>
+      <td><input type="checkbox" class="seats" value="C1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="C6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="C12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>D</td>
+      <td><input type="checkbox" class="seats" value="D1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="D6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="D12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>E</td>
+      <td><input type="checkbox" class="seats" value="E1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="E6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="E12" disabled=""></td>
+  </tr>
+    
+  <tr class="seatVGap"></tr>
+    
+  <tr>
+      <td>F</td>
+      <td><input type="checkbox" class="seats" value="F1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="F6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="F12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>G</td>
+      <td><input type="checkbox" class="seats" value="G1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="G6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="G12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>H</td>
+      <td><input type="checkbox" class="seats" value="H1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="H6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="H12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>I</td>
+      <td><input type="checkbox" class="seats" value="I1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="I6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="I12" disabled=""></td>
+  </tr>
+    
+  <tr>
+      <td>J</td>
+      <td><input type="checkbox" class="seats" value="J1" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J2" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J3" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J4" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J5" disabled=""></td>
+      <td></td>
+      <td><input type="checkbox" class="seats" value="J6" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J7" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J8" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J9" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J10" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J11" disabled=""></td>
+      <td><input type="checkbox" class="seats" value="J12" disabled=""></td>
+  </tr>
+    
+    
+  </tbody></table>
+    
+  <br><button onclick="updateTextArea()" disabled="">Confirm Selection</button>
+  </center>
+  </div>
+        
+  <br><br>
+  
+  <div class="displayerBoxes">
+  <center>
+    <table class="Displaytable">
+    <tbody><tr>
+      <th>Name</th>
+      <th>Number of Seats</th>
+      <th>Seats</th>
+    </tr>
+    <tr>
+      <td><textarea id="nameDisplay" disabled=""></textarea></td>
+      <td><textarea id="NumberDisplay" disabled=""></textarea></td>
+      <td><textarea id="seatsDisplay" disabled=""></textarea></td>
+    </tr>
+  </tbody></table>
+  </center>
+  </div>
+  
+   
+    
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-7c3b8b1b-1aba-2680-9c71-c808e29c1167" crossorigin=""></script>
+  
+  
+  </body>
+  <script src="./cinema.js"></script>
+  </html>

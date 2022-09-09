@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Cinema</title>
+    <link rel="icon" type="image/x-icon" href="./CinemaIcon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="./index.html"><img src="./CinemaIcon.png" style="height: 150px; width: 150px"></a>
+        <h1>Welcome to QA Cinema</h1>
+        <br>
+    </header>
+    <subhead>
+        <nav class="flex-container">
+            <a href="./index.html"><button class="btn">Home</button></a>
+            <a href="./whatsOn.html"><button class="btn">What's On</button></a>
+            <a href="./Screens.html"><button class="btn">Screens</button></a>
+            <a href="./classification.html"><button class="btn">Classification info</button></a></button>
+            <a href="./hours.html"><button class="btn">Opening Hours</button></a></button>
+            <a href="./gettingHere.html"><button class="btn">Getting Here</button></a>
+            <a href="./about.html"><button class="btn">About</button></a>
+        </nav>
+    </subhead>
+
+
+
+    <main>
+        <h2>Castaway</h2>
+
+        <br>
+
+        <table style="margin: auto">
+            <thead>
+                <th style="padding-right: 10px">Date</th>
+                <th style="padding-left: 10px">Time</th>
+            </thead>
+            <tr>
+                <td style="padding-right: 10px">12/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal"
+                            id=screening1>15:30</button>
+
+                        <div id="screeningModal" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">15:30 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal">Confirm</button>
+
+                                            <div id="ticketModal" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">13/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal2"
+                            id=screening2>15:30</button>
+
+                        <div id="screeningModal2" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">15:30 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal2">Confirm</button>
+
+                                            <div id="ticketModal2" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">15/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal3"
+                            id=screening3>15:30</button>
+
+                        <div id="screeningModal3" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">15:30 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal3">Confirm</button>
+
+                                            <div id="ticketModal3" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">16/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal4"
+                            id=screening4>19:00</button>
+
+                        <div id="screeningModal4" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">19:00 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal4">Confirm</button>
+
+                                            <div id="ticketModal4" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">17/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal5"
+                            id=screening5>12:30</button>
+
+                        <div id="screeningModal5" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">12:30 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal5">Confirm</button>
+
+                                            <div id="ticketModal5" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-right: 10px">17/09/2022</td>
+                <td style="padding-left: 10px">
+                    <div>
+                        <button type="button" class=btn data-bs-toggle="modal" data-bs-target="#screeningModal6"
+                            id=screening6>18:00</button>
+
+                        <div id="screeningModal6" class="modal fade" tabindex="-1" aria-labelledby="screeningModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="screeningModalLabel" style="color: black;">18:00 -
+                                            How Many
+                                            Tickets?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form>
+                                                <div class="h5">Adult:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="adultTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Child:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="childTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                                <div class="h5">Concession:</div>
+                                                <div class="book-ticket-quantity">
+                                                    <label class="select-2 book-ticket-quantity-field">
+                                                        <select class="bookTicket" id="concTicket">
+                                                            <option value="0" selected="" data-nr-booking-ticket="">0
+                                                            </option>
+                                                            <option value="1" data-nr-booking-ticket="">1</option>
+                                                            <option value="2" data-nr-booking-ticket="">2</option>
+                                                            <option value="3" data-nr-booking-ticket="">3</option>
+                                                            <option value="4" data-nr-booking-ticket="">4</option>
+                                                            <option value="5" data-nr-booking-ticket="">5</option>
+                                                            <option value="6" data-nr-booking-ticket="">6</option>
+                                                            <option value="7" data-nr-booking-ticket="">7</option>
+                                                            <option value="8" data-nr-booking-ticket="">8</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" createPerson
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <div>
+                                            <button type="button" class=btn data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal6">Confirm</button>
+
+                                            <div id="ticketModal6" class="modal fade" tabindex="-1"
+                                                aria-labelledby="ticketModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="ticketModalLabel"
+                                                                style="color: black;">
+                                                                Please Enter Your Details</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <form>
+                                                                    <label for="newForename" class="form-label mt-2"
+                                                                        style="color: black;">Forename</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newForename">
+                                                                    <label for="newSurname" class="form-label mt-2"
+                                                                        style="color: black;">Surname</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="newSurname">
+                                                                    <label for="newEmailAddress" class="form-label mt-2"
+                                                                        style="color: black;">Email Address</label>
+                                                                    <input type="text" class="form-control" id="newEmailAddress">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                createPerson data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="create--button" onclick="bookTicket()"
+                                                                data-bs-dismiss="modal">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </main>
+
+    <footer>
+        <br>
+        <br>
+        <br>
+        <div>
+            <ul class="footerLinks">
+                (coming back to this)
+            </ul>
+        </div>
+
+
+    </footer>
+    <script>
+        const screening1 = document.querySelector('#screening1');
+        const screening2 = document.querySelector('#screening2');
+        const screening3 = document.querySelector('#screening3');
+        const screening4 = document.querySelector('#screening4');
+        const screening5 = document.querySelector('#screening5');
+        const screening6 = document.querySelector('#screening6');
+
+        screening1.onclick = function () {
+            screeningId = 2;
+        }
+
+        screening2.onclick = function () {
+            screeningId = 6;
+        }
+
+        screening3.onclick = function () {
+            screeningId = 12
+        }
+
+        screening4.onclick = function () {
+            screeningId = 16
+        }
+
+        screening5.onclick = function () {
+            screeningId = 19
+        }
+
+        screening6.onclick = function () {
+            screeningId = 21
+        }
+
+    </script>
+</body>
+
+<script src="./cinema.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,5 @@
+https://princecharlescinema.com/PrinceCharlesCinema.dll/Booking?Booking=TSelectItems.waSelectItemsPrompt.TcsWebMenuItem_0.TcsWebTab_0.TcsPerformance_23830182.TcsSection_18488524
+
+https://princecharlescinema.com/PrinceCharlesCinema.dll/Booking?Booking=TSelectItems.waSelectItemsPrompt.TcsWebMenuItem_0.TcsWebTab_0.TcsPerformance_24077968.TcsSection_18488279
+
+https://princecharlescinema.com/PrinceCharlesCinema.dll/WhatsOn?sd=31&sm=8&sy=2022&ed=7&em=9&ey=2022
