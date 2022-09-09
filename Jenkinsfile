@@ -12,7 +12,6 @@ pipeline {
                 ssh -i ./.ssh/id_rsa jenkins@18.170.226.58 << EOF
                 git clone https://github.com/TochiOkereafor1/QA_Cinema.git
                 cd QA_Cinema
-                git checkout dev
                 git pull
                 mvn clean install
                 mkdir -p /home/jenkins/project-jars
